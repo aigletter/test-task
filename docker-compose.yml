@@ -1,0 +1,73 @@
+version: '2'
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: 1q2w3e
+      MARIADB_USER: logging
+      MARIADB_PASSWORD: Querty1234@
+      MARIADB_DATABASE: logging
+    volumes:
+      - ./runtime/db:/var/lib/mysql
+    ports:
+      - 13306:3306
+    networks:
+      - app-network
+  clickhouse:
+    image: clickhouse/clickhouse-server:21
+    restart: always
+    networks:
+      - app-network
+    ports:
+      - 18123:8123
+      - 19000:9000
+    environment:
+      CLICKHOUSE_DB: logging
+      CLICKHOUSE_USER: logging
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
+      CLICKHOUSE_PASSWORD: Querty1234@
+  nginx:
+    build: nginx
+    restart: on-failure
+    ports:
+      - 8080:80
+    volumes:
+      - ./web:/var/www/app/web
+      - ./nginx/logs:/var/www/logs
+    networks:
+      - app-network
+  php:
+    build: .
+    restart: on-failure
+    volumes:
+      - .:/var/www/app
+      - ./nginx/logs:/var/www/logs
+    networks:
+      - app-network
+    user: '1003:1003'
+    environment:
+      # FOR MYSQL
+      DB_CONNECTION: db
+      DB_DSN: mysql:host=logging_db_1;port=3306;dbname=logging
+
+      # FOR CLICKHOUSE
+      #DB_CONNECTION: clickhouse
+      #DB_DSN=host: logging_clickhouse_1;port=8123;database=logging;connect_timeout_with_failover_ms=10
+
+      DB_USERNAME: root
+      DB_PASSWORD: 1q2w3e
+      DB_CHARSET: utf8
+
+      DEFAULT_LOG_FILE: /var/log/nginx/access.log
+      LOG_FORMAT: '%h %l %u %t "%r" %>s %O "%{Referer}i" \"%{User-Agent}i'
+      PROCESS_TYPE: singe
+      BATCH_SIZE: 200
+
+      MAIL_ADMIN_EMAIL: admin@example.com
+      MAIL_SENDER_EMAIL: noreply@example.com
+      MAIL_SENDER_NAME: noreply@example.com
+
+networks:
+  app-network:
+    driver: bridge
