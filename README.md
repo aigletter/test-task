@@ -1,8 +1,10 @@
 # Test project
 
-Проект використовує пакет [aigletter/yii2-logging](https://github.com/aigletter/yii-logging/settings).
+Проект використовує розроблений мною пакет 
+[aigletter/yii2-logging](https://github.com/aigletter/yii-logging/settings).
 
-Документацію по його конфігурації можна почитати у відповідному [README](https://github.com/aigletter/yii-logging/blob/master/README.mds)
+Документацію по його конфігурації можна почитати у відповідному 
+[README](https://github.com/aigletter/yii-logging/blob/master/README.mds)
 
 ### Запуск проекта
 
@@ -17,3 +19,5 @@
 Приклади включаються 2 бази: clickhouse та db. Для зміни бази данних потрібно змінити змінну DB_CONNECTION .
 
 Також є можливість читати змінні з файла .env. Для цього добавлений файл .env.dist
+
+Питання і труднощі, котрі виникали в процессі роботи в окремому [файлі](https://github.com/aigletter/yii-logging/settings)
