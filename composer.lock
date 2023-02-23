@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aigletter/yii-logging.git",
-                "reference": "02ab3bff09fd24bc14c60251fb7ac2de18b0c3d6"
+                "reference": "1ca04f49ed2a1512d4707ffedf2f4ddb2a1eb0b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aigletter/yii-logging/zipball/02ab3bff09fd24bc14c60251fb7ac2de18b0c3d6",
-                "reference": "02ab3bff09fd24bc14c60251fb7ac2de18b0c3d6",
+                "url": "https://api.github.com/repos/aigletter/yii-logging/zipball/1ca04f49ed2a1512d4707ffedf2f4ddb2a1eb0b4",
+                "reference": "1ca04f49ed2a1512d4707ffedf2f4ddb2a1eb0b4",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
                 "source": "https://github.com/aigletter/yii-logging/tree/master",
                 "issues": "https://github.com/aigletter/yii-logging/issues"
             },
-            "time": "2023-02-23T09:03:12+00:00"
+            "time": "2023-02-23T10:01:05+00:00"
         },
         {
             "name": "bashkarev/clickhouse",
