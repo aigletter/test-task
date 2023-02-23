@@ -1,7 +1,7 @@
 # Test project
 
 Проект використовує розроблений мною пакет 
-[aigletter/yii2-logging](https://github.com/aigletter/yii-logging/settings).
+[aigletter/yii2-logging](https://github.com/aigletter/yii-logging).
 
 Документацію по його конфігурації можна почитати у відповідному 
 [README](https://github.com/aigletter/yii-logging/blob/master/README.mds)
