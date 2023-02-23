@@ -8,8 +8,8 @@ services:
       MARIADB_USER: logging
       MARIADB_PASSWORD: Querty1234@
       MARIADB_DATABASE: logging
-    volumes:
-      - ./runtime/db:/var/lib/mysql
+    #volumes:
+    #  - ./runtime/db:/var/lib/mysql
     ports:
       - 13306:3306
     networks:
@@ -39,13 +39,13 @@ services:
       - app-network
   php:
     build: .
-    restart: on-failure
+    restart: unless-stopped
     volumes:
       - .:/var/www/app
+      - /var/www/app/vendor
       - ./nginx/logs:/var/www/logs
     networks:
       - app-network
-    user: '1003:1003'
     environment:
       # FOR MYSQL
       DB_CONNECTION: db
@@ -55,14 +55,14 @@ services:
       #DB_CONNECTION: clickhouse
       #DB_DSN=host: logging_clickhouse_1;port=8123;database=logging;connect_timeout_with_failover_ms=10
 
-      DB_USERNAME: root
-      DB_PASSWORD: 1q2w3e
+      DB_USERNAME: logging
+      DB_PASSWORD: Querty1234@
       DB_CHARSET: utf8
 
-      DEFAULT_LOG_FILE: /var/log/nginx/access.log
-      LOG_FORMAT: '%h %l %u %t "%r" %>s %O "%{Referer}i" \"%{User-Agent}i'
-      PROCESS_TYPE: singe
-      BATCH_SIZE: 200
+      DEFAULT_LOG_FILE: ./nginx/logs/access.log
+      #LOG_FORMAT: '%h %l %u %t "%r" %>s %O "%{Referer}i" \"%{User-Agent}i'
+      #PROCESS_MODE: batch
+      #BATCH_SIZE: 200
 
       MAIL_ADMIN_EMAIL: admin@example.com
       MAIL_SENDER_EMAIL: noreply@example.com

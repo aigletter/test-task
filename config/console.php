@@ -61,8 +61,9 @@ $config = [
             'db' => getenv('DB_CONNECTION') ?: 'db',
             // ... другие настройки модуля ...
             'params' => [
-                //'defaultLogFile' => '/var/log/nginx/access.log',
-                //'logFormat' => '%h %l %u %t "%r" %>s %O "%{Referer}i" \"%{User-Agent}i"',
+                'defaultLogFile' => getenv('DEFAULT_LOG_FILE') ?: null,
+                'logFormat' => getenv('LOG_FORMAT') ?: null,
+                'processMode' => getenv('PROCESS_MODE') ?: null,
                 'batchSize' => 5,
             ],
             'controllerMap' => [
