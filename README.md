@@ -20,5 +20,12 @@
 
 Також є можливість читати змінні з файла .env. Для цього добавлений файл .env.dist
 
+Для застосування міграції використовувати команди:
+
+~~~
+php yii logging/migrate
+php yii logging/migrate/down
+~~~
+
 Питання і труднощі, котрі виникали в процессі роботи в окремому 
 [файлі](https://github.com/aigletter/test-task/blob/master/difficulties-and-questions.md)
