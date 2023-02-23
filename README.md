@@ -20,4 +20,5 @@
 
 Також є можливість читати змінні з файла .env. Для цього добавлений файл .env.dist
 
-Питання і труднощі, котрі виникали в процессі роботи в окремому [файлі](https://github.com/aigletter/yii-logging/settings)
+Питання і труднощі, котрі виникали в процессі роботи в окремому 
+[файлі](https://github.com/aigletter/test-task/blob/master/difficulties-and-questions.md)
